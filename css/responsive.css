@@ -1,0 +1,46 @@
+﻿@media (max-width: 860px) {
+  .overview-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portal-card__switch {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .overview-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-card__content {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-card__header {
+    padding-bottom: 1.25rem;
+  }
+
+  .portal-card__meta span {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 1.5rem;
+  }
+
+  .portal-card {
+    padding: 1.5rem;
+  }
+
+  .payment-panel__title {
+    font-size: 1.4rem;
+  }
+}
