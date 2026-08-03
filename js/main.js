@@ -1,12 +1,16 @@
 ﻿const soloRegistrationBtn = document.getElementById('soloRegistrationBtn');
+const duoRegistrationBtn = document.getElementById('duoRegistrationBtn');
 const teamRegistrationBtn = document.getElementById('teamRegistrationBtn');
 const soloPanel = document.getElementById('soloPanel');
+const duoPanel = document.getElementById('duoPanel');
 const teamPanel = document.getElementById('teamPanel');
 const teamSizeSelect = document.getElementById('teamSize');
 const teamMembersContainer = document.getElementById('teamMembersContainer');
 const soloForm = document.getElementById('soloForm');
+const duoForm = document.getElementById('duoForm');
 const teamForm = document.getElementById('teamForm');
 const soloStatus = document.getElementById('soloStatus');
+const duoStatus = document.getElementById('duoStatus');
 const teamStatus = document.getElementById('teamStatus');
 
 const createMemberField = (index) => {
@@ -64,18 +68,28 @@ const updateTeamMembers = () => {
 };
 
 const setTab = (activeButton, activePanel) => {
-  const inactiveButton = activeButton === soloRegistrationBtn ? teamRegistrationBtn : soloRegistrationBtn;
-  const inactivePanel = activePanel === soloPanel ? teamPanel : soloPanel;
+  const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
+  const panels = Array.from(document.querySelectorAll('.registration-panel'));
 
-  activeButton.classList.add('tab-button--active');
-  activeButton.setAttribute('aria-selected', 'true');
-  inactiveButton.classList.remove('tab-button--active');
-  inactiveButton.setAttribute('aria-selected', 'false');
+  tabButtons.forEach((btn) => {
+    btn.classList.remove('tab-button--active');
+    btn.setAttribute('aria-selected', 'false');
+  });
 
-  activePanel.classList.add('registration-panel--active');
-  activePanel.removeAttribute('hidden');
-  inactivePanel.classList.remove('registration-panel--active');
-  inactivePanel.setAttribute('hidden', '');
+  panels.forEach((panel) => {
+    panel.classList.remove('registration-panel--active');
+    panel.setAttribute('hidden', '');
+  });
+
+  if (activeButton) {
+    activeButton.classList.add('tab-button--active');
+    activeButton.setAttribute('aria-selected', 'true');
+  }
+
+  if (activePanel) {
+    activePanel.classList.add('registration-panel--active');
+    activePanel.removeAttribute('hidden');
+  }
 };
 
 const getLabelText = (field) => {
@@ -112,6 +126,8 @@ const clearAllErrors = (form) => {
 
 const isPhoneValid = (value) => /^[0-9]{10}$/.test(value.trim());
 
+const isEmailValid = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
 const validateField = (field) => {
   const value = field.value.trim();
   const label = getLabelText(field);
@@ -120,7 +136,13 @@ const validateField = (field) => {
     return `${label} is required.`;
   }
 
-  if (/mobile/i.test(field.name)) {
+  if (field.type === 'email' || /email/i.test(field.name)) {
+    if (!isEmailValid(value)) {
+      return 'Please enter a valid email address.';
+    }
+  }
+
+  if (field.type === 'tel' || /mobile/i.test(field.name)) {
     if (!isPhoneValid(value)) {
       return 'Phone number must contain exactly 10 digits.';
     }
@@ -196,6 +218,17 @@ const buildTeamPayload = (form) => {
   return payload;
 };
 
+const buildDuoPayload = (form) => {
+  const payload = getFormValues(form);
+
+  // Normalize amount to a plain numeric string for the backend.
+  if (payload.amount) {
+    payload.amount = payload.amount.replace(/[^0-9]/g, '');
+  }
+
+  return payload;
+};
+
 const submitForm = async ({ form, statusElement, apiMethod, successMessage }) => {
   if (!form || !statusElement) return;
   if (!validateForm(form)) return;
@@ -205,7 +238,9 @@ const submitForm = async ({ form, statusElement, apiMethod, successMessage }) =>
 
   const data = apiMethod === window.api.submitTeamRegistration
     ? buildTeamPayload(form)
-    : getFormValues(form);
+    : apiMethod === window.api.submitDuoRegistration
+      ? buildDuoPayload(form)
+      : getFormValues(form);
 
   try {
     await apiMethod(data);
@@ -220,8 +255,9 @@ const submitForm = async ({ form, statusElement, apiMethod, successMessage }) =>
   }
 };
 
-if (soloRegistrationBtn && teamRegistrationBtn && soloPanel && teamPanel) {
+if (soloRegistrationBtn && duoRegistrationBtn && teamRegistrationBtn && soloPanel && duoPanel && teamPanel) {
   soloRegistrationBtn.addEventListener('click', () => setTab(soloRegistrationBtn, soloPanel));
+  duoRegistrationBtn.addEventListener('click', () => setTab(duoRegistrationBtn, duoPanel));
   teamRegistrationBtn.addEventListener('click', () => setTab(teamRegistrationBtn, teamPanel));
 }
 
@@ -245,6 +281,25 @@ if (soloForm) {
     if (event.target.matches('.field__input')) {
       clearFieldError(event.target);
       clearStatus(soloStatus);
+    }
+  });
+}
+
+if (duoForm) {
+  duoForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    submitForm({
+      form: duoForm,
+      statusElement: duoStatus,
+      apiMethod: window.api.submitDuoRegistration,
+      successMessage: 'Duo registration submitted successfully.',
+    });
+  });
+
+  duoForm.addEventListener('input', (event) => {
+    if (event.target.matches('.field__input')) {
+      clearFieldError(event.target);
+      clearStatus(duoStatus);
     }
   });
 }

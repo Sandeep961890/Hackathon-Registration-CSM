@@ -6,12 +6,23 @@
   .portal-card__switch {
     flex-direction: column;
   }
+  /* Slightly reduce hero title and logos on tablet */
+  .hero__title { font-size: clamp(40px, 8.5vw, 72px); }
+  .hero__nsrit-logo { width: 150px; height: 68px; }
+  .hero__logo.hero__logo--secondary { width: 84px; height: 84px; }
 }
 
 @media (max-width: 620px) {
   .overview-cards {
     grid-template-columns: 1fr;
   }
+
+  /* Mobile: stack logos and center everything */
+  .hero__branding-row { flex-direction: column; align-items: center; gap: 1rem; }
+  .hero__logo-stack { flex-direction: column; gap: 0.8rem; }
+  .hero__nsrit-logo { width: 140px; height: 64px; }
+  .hero__logo.hero__logo--secondary { width: 76px; height: 76px; }
+  .hero__title { font-size: clamp(32px, 9.5vw, 56px); text-align: center; }
 
   .portal-card__content {
     grid-template-columns: 1fr;
@@ -33,7 +44,7 @@
   }
 
   .hero {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .portal-card {

@@ -2,7 +2,7 @@
 // Google Apps Script Web App URL
 // ===============================
 const GOOGLE_APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwL-HO2kYUxkTLF9QETdSudynvbsK7rHYEeuCKeZUXnYWtgXBN4uQNIecamz0Hj55gc/exec";
+  "https://script.google.com/macros/s/AKfycby_AnAUgPb2hgoPPR1FlgBDpNpR3tV07Eozt5Tt6gr0oeP3KNwzFfH_lT5sL-n9Sxk_Fw/exec";
 
 
 // ===============================
@@ -148,6 +148,16 @@ window.api = {
 
         return await sendRegistration(
             "Solo",
+            data
+        );
+
+    },
+
+
+    submitDuoRegistration: async (data) => {
+
+        return await sendRegistration(
+            "Duo",
             data
         );
 
