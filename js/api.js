@@ -46,14 +46,12 @@ const sendRegistration = async (type, data) => {
 
 
         if (!response.ok) {
-
-            throw new Error(
-                `Server Error: ${response.status}`
-            );
-
+          const errorText = await response.text().catch(() => '');
+          console.error('Registration API returned non-ok status:', response.status, errorText);
+          throw new Error(
+            `Server Error: ${response.status}`
+          );
         }
-
-
 
         const result = await response.text();
 

@@ -168,6 +168,138 @@ const validateForm = (form) => {
   return valid;
 };
 
+const setButtonState = (button, disabled, text) => {
+  if (!button) return;
+  if (disabled) {
+    button.disabled = true;
+    button.dataset.originalText = button.dataset.originalText || button.textContent;
+    button.textContent = text;
+    button.classList.add('button--disabled');
+  } else {
+    button.disabled = false;
+    button.textContent = text || button.dataset.originalText || button.textContent;
+    button.classList.remove('button--disabled');
+  }
+};
+
+const createLoadingOverlay = () => {
+  const overlay = document.createElement('div');
+  overlay.id = 'registrationLoadingOverlay';
+  overlay.className = 'registration-loading-overlay';
+  overlay.innerHTML = `
+    <div class="registration-loading-shell" role="status" aria-live="polite">
+      <div class="premium-spinner" aria-hidden="true"></div>
+      <p class="registration-loading-text">Processing Registration...</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  return overlay;
+};
+
+const getLoadingOverlay = () => {
+  return document.getElementById('registrationLoadingOverlay') || createLoadingOverlay();
+};
+
+const showLoading = () => {
+  const overlay = getLoadingOverlay();
+  overlay.style.display = 'flex';
+  document.body.classList.add('loading-active');
+};
+
+const hideLoading = () => {
+  const overlay = document.getElementById('registrationLoadingOverlay');
+  if (!overlay) return;
+  overlay.style.display = 'none';
+  document.body.classList.remove('loading-active');
+};
+
+let lastSubmittedForm = null;
+
+const createSuccessOverlay = () => {
+  const overlay = document.createElement('div');
+  overlay.id = 'registrationSuccessOverlay';
+  overlay.className = 'registration-success-overlay';
+  overlay.innerHTML = `
+    <div class="registration-success-card" role="dialog" aria-labelledby="successTitle" aria-live="polite">
+      <div class="success-icon-shell" aria-hidden="true">
+        <div class="success-icon">✓</div>
+      </div>
+      <h2 id="successTitle">REGISTRATION SUCCESSFUL!</h2>
+      <p class="success-message">Your registration has been successfully submitted.</p>
+      <p class="success-subtitle">All the very best for AI HackSprint 1.0!</p>
+      <p class="success-caption">Keep innovating. Keep building. Keep creating.</p>
+      <p class="success-note">Get ready to solve, innovate and make an impact!</p>
+      <button type="button" class="button button--primary registration-success-action">REGISTER ANOTHER TEAM</button>
+    </div>
+  `;
+
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) {
+      hideSuccessScreen();
+    }
+  });
+
+  overlay.querySelector('.registration-success-action')?.addEventListener('click', hideSuccessScreen);
+
+  document.body.appendChild(overlay);
+  return overlay;
+};
+
+const getSuccessOverlay = () => {
+  return document.getElementById('registrationSuccessOverlay') || createSuccessOverlay();
+};
+
+const showSuccessScreen = (form, message = '') => {
+  lastSubmittedForm = form || null;
+  const overlay = getSuccessOverlay();
+  const messageElement = overlay.querySelector('.success-message');
+
+  if (message && messageElement) {
+    messageElement.textContent = message;
+  } else if (messageElement) {
+    messageElement.textContent = 'Your registration has been successfully submitted.';
+  }
+
+  overlay.style.display = 'flex';
+  const activePanel = lastSubmittedForm?.closest('.registration-panel');
+  if (activePanel) {
+    activePanel.classList.add('registration-panel--success-hidden');
+  }
+};
+
+const hideSuccessScreen = () => {
+  const overlay = document.getElementById('registrationSuccessOverlay');
+  if (!overlay) return;
+  overlay.style.display = 'none';
+
+  const messageElement = overlay.querySelector('.success-message');
+  if (messageElement) {
+    messageElement.textContent = 'Your registration has been successfully submitted.';
+  }
+
+  document.querySelectorAll('.registration-panel.registration-panel--success-hidden').forEach((panel) => {
+    panel.classList.remove('registration-panel--success-hidden');
+  });
+
+  if (lastSubmittedForm) {
+    const submitButton = lastSubmittedForm.querySelector('button[type="submit"]') || lastSubmittedForm.querySelector('button');
+    setButtonState(submitButton, false, submitButton?.dataset?.originalText || submitButton?.textContent);
+    clearAllErrors(lastSubmittedForm);
+    clearStatus(lastSubmittedForm.querySelector('.form-status'));
+    lastSubmittedForm.reset();
+    if (lastSubmittedForm === teamForm && teamSizeSelect) {
+      updateTeamMembers();
+    }
+  }
+
+  lastSubmittedForm = null;
+};
+
+window.showLoading = showLoading;
+window.hideLoading = hideLoading;
+window.showSuccessScreen = showSuccessScreen;
+window.hideSuccessScreen = hideSuccessScreen;
+
 const setStatus = (container, message, type) => {
   if (!container) return;
   container.textContent = message;
@@ -191,8 +323,15 @@ const getFormValues = (form) => {
   return values;
 };
 
+const normalizePayloadAmount = (payload) => {
+  if (payload?.amount) {
+    payload.amount = payload.amount.replace(/[^0-9]/g, '');
+  }
+  return payload;
+};
+
 const buildTeamPayload = (form) => {
-  const payload = getFormValues(form);
+  const payload = normalizePayloadAmount(getFormValues(form));
   const teamSize = Number(form.teamSize?.value || 0);
   const memberCount = Math.max(teamSize - 1, 0);
 
@@ -218,40 +357,49 @@ const buildTeamPayload = (form) => {
   return payload;
 };
 
-const buildDuoPayload = (form) => {
-  const payload = getFormValues(form);
+const buildDuoPayload = (form) => normalizePayloadAmount(getFormValues(form));
 
-  // Normalize amount to a plain numeric string for the backend.
-  if (payload.amount) {
-    payload.amount = payload.amount.replace(/[^0-9]/g, '');
-  }
-
-  return payload;
-};
+const buildSoloPayload = (form) => normalizePayloadAmount(getFormValues(form));
 
 const submitForm = async ({ form, statusElement, apiMethod, successMessage }) => {
   if (!form || !statusElement) return;
-  if (!validateForm(form)) return;
 
-  clearStatus(statusElement);
-  setStatus(statusElement, 'Sending registration…', '');
+  const submitButton = form.querySelector('button[type="submit"]') || form.querySelector('button');
+  const originalButtonText = submitButton?.textContent;
+
+  clearAllErrors(form);
+
+  if (!validateForm(form)) {
+    setStatus(statusElement, 'Please fix the highlighted fields before submitting.', 'error');
+    return;
+  }
+
+  showLoading();
+  setButtonState(submitButton, true, 'SUBMITTING...');
+  setStatus(statusElement, 'Processing registration...', '');
 
   const data = apiMethod === window.api.submitTeamRegistration
     ? buildTeamPayload(form)
     : apiMethod === window.api.submitDuoRegistration
       ? buildDuoPayload(form)
-      : getFormValues(form);
+      : buildSoloPayload(form);
+
+  let requestSucceeded = false;
 
   try {
     await apiMethod(data);
-    setStatus(statusElement, successMessage, 'success');
-    form.reset();
-
-    if (form === teamForm && teamSizeSelect) {
-      updateTeamMembers();
-    }
+    requestSucceeded = true;
+    hideLoading();
+    showSuccessScreen(form, successMessage);
   } catch (error) {
+    console.error('Registration submission failed:', error);
+    hideLoading();
+    setButtonState(submitButton, false, originalButtonText);
     setStatus(statusElement, error?.message || 'Unable to send registration. Please try again.', 'error');
+  } finally {
+    if (!requestSucceeded) {
+      hideLoading();
+    }
   }
 };
 
