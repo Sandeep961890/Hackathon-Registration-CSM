@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI HACKSPRINT 1.0 | Event Gallery</title>
+  <link rel="stylesheet" href="css/style.css?v=gallery-white-heading">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <main class="page gallery-page">
+    <nav class="gallery-navigation" aria-label="Page navigation">
+      <a class="button button--primary gallery-back-button" href="index.html">Back to Home</a>
+    </nav>
+
+    <header class="gallery-header">
+      <p class="gallery-header__brand">AI HACKSPRINT 1.0</p>
+      <h1 class="gallery-header__title">Event Gallery</h1>
+      <p class="gallery-header__subtitle">Innovation. Creativity. Collaboration.</p>
+    </header>
+
+    <section class="gallery-content" aria-label="AI HACKSPRINT event photos">
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+  </main>
+
+  <dialog class="gallery-viewer" id="galleryViewer" aria-label="Event photo viewer">
+    <button class="gallery-viewer__close" id="galleryClose" type="button" aria-label="Close image viewer">&times;</button>
+    <button class="gallery-viewer__control gallery-viewer__previous" id="galleryPrevious" type="button" aria-label="Previous photo">&#8249;</button>
+    <figure class="gallery-viewer__figure">
+      <img class="gallery-viewer__image" id="galleryViewerImage" alt="">
+      <figcaption class="gallery-viewer__caption" id="galleryViewerCaption"></figcaption>
+    </figure>
+    <button class="gallery-viewer__control gallery-viewer__next" id="galleryNext" type="button" aria-label="Next photo">&#8250;</button>
+  </dialog>
+
+  <script src="js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI HACKSPRINT | Registration</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="page registration-page">
+    <nav aria-label="Page navigation">
+      <a class="button button--primary" href="index.html">Back to Home</a>
+    </nav><section class="portal-card" aria-label="Premium registration card">
+      <div class="portal-card__header">
+        <div>
+          <p class="portal-card__eyebrow">Registration Experience</p>
+          <h2 class="portal-card__heading">Conference-grade registration with fintech elegance</h2>
+        </div>
+        <div class="portal-card__meta">
+          <span>Secure access</span>
+          <span>Fast confirmation</span>
+        </div>
+      </div>
+
+      <div class="portal-card__switch" role="tablist" aria-label="Registration type tabs">
+        <button type="button" class="tab-button tab-button--active" id="soloRegistrationBtn" role="tab" aria-selected="true" aria-controls="soloPanel">Solo Registration<br>1 MEMBER</br></button>
+        <button type="button" class="tab-button" id="duoRegistrationBtn" role="tab" aria-selected="false" aria-controls="duoPanel">Duo Registration<br>2 MEMBERS</br></button>
+        <button type="button" class="tab-button" id="teamRegistrationBtn" role="tab" aria-selected="false" aria-controls="teamPanel">Team Registration<br>3-4 MEMBERS</br></button>
+      </div>
+
+      <div class="portal-card__content">
+        <main class="registration-area">
+          <section class="registration-panel registration-panel--active" id="soloPanel" aria-labelledby="soloPanelTitle" role="tabpanel">
+            <div class="registration-panel__header">
+              <p class="registration-panel__eyebrow">Individual entry</p>
+              <h3 class="registration-panel__title" id="soloPanelTitle">Solo Registration</h3>
+            </div>
+
+            <form class="registration-form" id="soloForm" novalidate>
+              <div class="field-grid">
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 20C6 16.6863 8.68629 14 12 14C15.3137 14 18 16.6863 18 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Full Name</span>
+                  </div>
+                  <input type="text" name="leaderName" class="field__input" autocomplete="name" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">College</span>
+                  </div>
+                  <input type="text" name="college" class="field__input" autocomplete="organization" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Branch</span>
+                  </div>
+                  <input type="text" name="branch" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Year</span>
+                  </div>
+                  <select name="year" class="field__input" required>
+                    <option value="">Select year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Email</span>
+                  </div>
+                  <input type="email" name="email" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Amount</span>
+                  </div>
+                  <input type="text" name="amount" class="field__input" value="₹100" readonly required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 10H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 14H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Student ID</span>
+                  </div>
+                  <input type="text" name="rollNumber" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C13.3726 22 8 16.6274 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H13.08C13.3269 8 13.5626 8.10536 13.7322 8.2929L15.42 10.58C15.7032 10.9313 15.7027 11.4209 15.4174 11.7713L14.09 13.42C14.4474 14.5457 15.3053 15.4037 16.43 15.761L18.08 14.43C18.4304 14.1447 18.92 14.1442 19.2713 14.4274L21.58 16.12C21.768 16.2899 21.873 16.5256 21.873 16.7725V16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Mobile Number</span>
+                  </div>
+                  <input type="tel" name="mobile" class="field__input" autocomplete="tel" required>
+                </label>
+
+                <label class="field field--full">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 10H18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 13H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10 16H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Transaction ID</span>
+                  </div>
+                  <input type="text" name="transactionId" class="field__input" required>
+                </label>
+              </div>
+
+              <div class="form-status" id="soloStatus" aria-live="polite"></div>
+
+              <div class="form-footer">
+                <p class="form-footer__note">Payments are processed securely. Keep your receipt for confirmation.</p>
+                <button type="submit" class="button button--primary">Submit Solo Registration</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="registration-panel" id="duoPanel" aria-labelledby="duoPanelTitle" role="tabpanel" hidden>
+            <div class="registration-panel__header">
+              <p class="registration-panel__eyebrow">Duo entry</p>
+              <h3 class="registration-panel__title" id="duoPanelTitle">Duo Registration</h3>
+            </div>
+
+            <form class="registration-form" id="duoForm" novalidate>
+              <div class="field-grid">
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15C10.9391 15 9.92172 15.4214 9.17157 16.1716C8.42143 16.9217 8 17.9391 8 19V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 8V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 8V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 13H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Team Name</span>
+                  </div>
+                  <input type="text" name="teamName" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 20C6 16.6863 8.68629 14 12 14C15.3137 14 18 16.6863 18 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Full Name</span>
+                  </div>
+                  <input type="text" name="leaderName" class="field__input" autocomplete="name" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C13.3726 22 8 16.6274 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H13.08C13.3269 8 13.5626 8.10536 13.7322 8.2929L15.42 10.58C15.7032 10.9313 15.7027 11.4209 15.4174 11.7713L14.09 13.42C14.4474 14.5457 15.3053 15.4037 16.43 15.761L18.08 14.43C18.4304 14.1447 18.92 14.1442 19.2713 14.4274L21.58 16.12C21.768 16.2899 21.873 16.5256 21.873 16.7725V16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Roll Number</span>
+                  </div>
+                  <input type="text" name="leaderRollNumber" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C13.3726 22 8 16.6274 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H13.08C13.3269 8 13.5626 8.10536 13.7322 8.2929L15.42 10.58C15.7032 10.9313 15.7027 11.4209 15.4174 11.7713L14.09 13.42C14.4474 14.5457 15.3053 15.4037 16.43 15.761L18.08 14.43C18.4304 14.1447 18.92 14.1442 19.2713 14.4274L21.58 16.12C21.768 16.2899 21.873 16.5256 21.873 16.7725V16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Mobile Number</span>
+                  </div>
+                  <input type="tel" name="leaderMobile" class="field__input" autocomplete="tel" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Email Address</span>
+                  </div>
+                  <input type="email" name="leaderEmail" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Branch</span>
+                  </div>
+                  <input type="text" name="leaderBranch" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Year</span>
+                  </div>
+                  <select name="leaderYear" class="field__input" required>
+                    <option value="">Select year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">College Name</span>
+                  </div>
+                  <input type="text" name="college" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 20C6 16.6863 8.68629 14 12 14C15.3137 14 18 16.6863 18 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Member 2 Full Name</span>
+                  </div>
+                  <input type="text" name="member2Name" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C13.3726 22 8 16.6274 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H13.08C13.3269 8 13.5626 8.10536 13.7322 8.2929L15.42 10.58C15.7032 10.9313 15.7027 11.4209 15.4174 11.7713L14.09 13.42C14.4474 14.5457 15.3053 15.4037 16.43 15.761L18.08 14.43C18.4304 14.1447 18.92 14.1442 19.2713 14.4274L21.58 16.12C21.768 16.2899 21.873 16.5256 21.873 16.7725V16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Member 2 Roll Number</span>
+                  </div>
+                  <input type="text" name="member2RollNumber" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C13.3726 22 8 16.6274 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H13.08C13.3269 8 13.5626 8.10536 13.7322 8.2929L15.42 10.58C15.7032 10.9313 15.7027 11.4209 15.4174 11.7713L14.09 13.42C14.4474 14.5457 15.3053 15.4037 16.43 15.761L18.08 14.43C18.4304 14.1447 18.92 14.1442 19.2713 14.4274L21.58 16.12C21.768 16.2899 21.873 16.5256 21.873 16.7725V16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Member 2 Mobile Number</span>
+                  </div>
+                  <input type="tel" name="member2Mobile" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Member 2 Email Address</span>
+                  </div>
+                  <input type="email" name="member2Email" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Member 2 Branch</span>
+                  </div>
+                  <input type="text" name="member2Branch" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Member 2 Year</span>
+                  </div>
+                  <select name="member2Year" class="field__input" required>
+                    <option value="">Select year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Member 2 College Name</span>
+                  </div>
+                  <input type="text" name="member2College" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 10H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 14H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Amount</span>
+                  </div>
+                  <input type="text" name="amount" class="field__input" value="₹300" readonly required>
+                </label>
+
+                <label class="field field--full">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 10H18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 13H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10 16H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Transaction ID</span>
+                  </div>
+                  <input type="text" name="transactionId" class="field__input" required>
+                </label>
+              </div>
+
+              <div class="form-status" id="duoStatus" aria-live="polite"></div>
+
+              <div class="form-footer">
+                <p class="form-footer__note">Register both participants together and complete payment once.</p>
+                <button type="submit" class="button button--primary">Submit Duo Registration</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="registration-panel" id="teamPanel" aria-labelledby="teamPanelTitle" role="tabpanel" hidden>
+            <div class="registration-panel__header">
+              <p class="registration-panel__eyebrow">Team entry</p>
+              <h3 class="registration-panel__title" id="teamPanelTitle">Team Registration</h3>
+            </div>
+
+            <form class="registration-form" id="teamForm" novalidate>
+              <div class="field-grid">
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15C10.9391 15 9.92172 15.4214 9.17157 16.1716C8.42143 16.9217 8 17.9391 8 19V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 8V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 8V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 13H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Team Name</span>
+                  </div>
+                  <input type="text" name="teamName" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 21V19C4 17.9391 4.42143 16.9217 5.17157 16.1716C5.92172 15.4214 6.93913 15 8 15H16C17.0609 15 18.0783 15.4214 18.8284 16.1716C19.5786 16.9217 20 17.9391 20 19V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Name</span>
+                  </div>
+                  <input type="text" name="leaderName" class="field__input" autocomplete="name" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C13.3726 22 8 16.6274 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H13.08C13.3269 8 13.5626 8.10536 13.7322 8.2929L15.42 10.58C15.7032 10.9313 15.7027 11.4209 15.4174 11.7713L14.09 13.42C14.4474 14.5457 15.3053 15.4037 16.43 15.761L18.08 14.43C18.4304 14.1447 18.92 14.1442 19.2713 14.4274L21.58 16.12C21.768 16.2899 21.873 16.5256 21.873 16.7725V16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Mobile</span>
+                  </div>
+                  <input type="tel" name="mobile" class="field__input" autocomplete="tel" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C13.3726 22 8 16.6274 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H13.08C13.3269 8 13.5626 8.10536 13.7322 8.2929L15.42 10.58C15.7032 10.9313 15.7027 11.4209 15.4174 11.7713L14.09 13.42C14.4474 14.5457 15.3053 15.4037 16.43 15.761L18.08 14.43C18.4304 14.1447 18.92 14.1442 19.2713 14.4274L21.58 16.12C21.768 16.2899 21.873 16.5256 21.873 16.7725V16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Roll Number</span>
+                  </div>
+                  <input type="text" id="leaderRollNumber" name="rollNumber" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C13.3726 22 8 16.6274 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H13.08C13.3269 8 13.5626 8.10536 13.7322 8.2929L15.42 10.58C15.7032 10.9313 15.7027 11.4209 15.4174 11.7713L14.09 13.42C14.4474 14.5457 15.3053 15.4037 16.43 15.761L18.08 14.43C18.4304 14.1447 18.92 14.1442 19.2713 14.4274L21.58 16.12C21.768 16.2899 21.873 16.5256 21.873 16.7725V16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span class="field__label">Amount</span>
+                  </div>
+                  <input type="text" name="amount" class="field__input" value="₹400" readonly required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Branch</span>
+                  </div>
+                  <input type="text" name="leaderBranch" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Year</span>
+                  </div>
+                  <select name="leaderYear" class="field__input" required>
+                    <option value="">Select year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Leader Email</span>
+                  </div>
+                  <input type="email" name="leaderEmail" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20H19V10L12 4L5 10V20Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">College</span>
+                  </div>
+                  <input type="text" name="college" class="field__input" required>
+                </label>
+
+                <label class="field">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 20H18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 20V12C8 11.4477 8.44772 11 9 11H15C15.5523 11 16 11.4477 16 12V20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10 4H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Team Size</span>
+                  </div>
+                  <select name="teamSize" class="field__input" id="teamSize" required>
+                    <option value="3">3 Members</option>
+                    <option value="4">4 Members</option>
+                  </select>
+                </label>
+
+                <div class="team-members" id="teamMembersContainer"></div>
+
+                <label class="field field--full">
+                  <div class="field__label-row">
+                    <span class="field__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 10H18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 13H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10 16H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="field__label">Transaction ID</span>
+                  </div>
+                  <input type="text" name="transactionId" class="field__input" required>
+                </label>
+              </div>
+
+              <div class="form-status" id="teamStatus" aria-live="polite"></div>
+
+              <div class="form-footer">
+                <p class="form-footer__note">Register the full team and save time by completing payment once.</p>
+                <button type="submit" class="button button--primary">Submit Team Registration</button>
+              </div>
+            </form>
+          </section>
+
+          
+
+          
+        </main>
+
+        <aside class="payment-panel" aria-labelledby="paymentPanelTitle">
+          <div class="payment-panel__header">
+            <p class="payment-panel__eyebrow">Payment Terminal</p>
+            <h3 class="payment-panel__title" id="paymentPanelTitle">Secure checkout</h3>
+          </div>
+
+          <div class="payment-panel__card">
+            <img src="images/qr-code.jpeg" alt="Payment QR code" class="payment-panel__qr">
+            <div class="payment-panel__details">
+              <p class="payment-panel__label"></p>
+              <p class="payment-panel__fee"><strong>Solo:</strong> ₹100</p>
+              <p class="payment-panel__fee"><strong>Duo:</strong> ₹300</p>
+              <p class="payment-panel__fee"><strong>Team:</strong> ₹400</p>
+              <div class="payment-panel__phones">
+                <p class="payment-panel__phone-title">Pay to this mobile number </p>
+                <p><h1>8523850739</h1></p>
+                <p><h1>8121465141</h1></p>
+              </div>
+            </div>
+          </div>
+
+          <p class="payment-panel__description">Confirm payment with your transaction reference and upload it in the form. Our operations team will review and send confirmation within minutes.</p>
+
+          <div class="coordinator-card" aria-label="Coordinator information">
+            <div class="coordinator-card__header">
+              <p class="coordinator-card__eyebrow">CO-ORDINATORS</p>
+            </div>
+            <div class="coordinator-card__body">
+              <div class="coordinator-card__section">
+                <h4 class="coordinator-card__section-title coordinator-card__section-title--faculty">Faulty Convener </h4>
+                <ul class="coordinator-card__list">
+                  <li>Mr. N.Viswanadha Reddy </li>
+                  <li>Dr. A.SSV Ram kumar</li>
+                  <li>Dr.D.Sirisha</li>
+                </ul>
+                <br>
+                <h4 class="coordinator-card__section-title coordinator-card__section-title--faculty">Faculty Co-Ordinators</h4>
+                <ul class="coordinator-card__list">
+                  <li><span>Mr.STP.L VARA PRASAD</span><span class="coordinator-card__phone"><br>📞 7702213525</span></li>
+                  <li><span>Mrs.G.VIJAYA</span><span class="coordinator-card__phone"><br>📞 9948809915</span></li>
+                  
+              </div>
+
+              <div class="coordinator-card__section">
+                <h4 class="coordinator-card__section-title coordinator-card__section-title--student">Student Co-Ordinators</h4>
+                <ul class="coordinator-card__list coordinator-card__list--phones">
+                  <li><span>G. Sandeep</span><span class="coordinator-card__phone">📞 9059253347</span></li>
+                  <li><span>D. VSS Veena Madhuri</span><span class="coordinator-card__phone">📞 8523850739</span></li>
+                  <li><span>V. Manoj</span><span class="coordinator-card__phone">📞 7569135138</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </div>
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
